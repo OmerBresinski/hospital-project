@@ -1,4 +1,5 @@
 import type { IncidentReport, IncidentReportInput, IncidentListItem } from '@/types';
+import { seedIncidentsIfEmpty } from '@/services/seedData';
 
 const STORAGE_KEY = 'incidents';
 
@@ -7,6 +8,9 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // Helper to get incidents from localStorage
 const getStoredIncidents = (): IncidentReport[] => {
+  // Seed data if empty (only runs once)
+  seedIncidentsIfEmpty();
+  
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
     return stored ? JSON.parse(stored) : [];

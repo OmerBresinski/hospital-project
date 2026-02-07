@@ -80,7 +80,11 @@
       "safety": "בטיחות",
       "security": "אבטחה",
       "equipment": "ציוד",
-      "other": "אחר"
+      "other": "אחר",
+      "fall": "נפילה",
+      "medication_error": "טעות תרופתית",
+      "equipment_failure": "תקלת ציוד",
+      "infection": "זיהום"
     },
     "details": {
       "title": "פרטים",

@@ -80,7 +80,11 @@
       "safety": "Safety",
       "security": "Security",
       "equipment": "Equipment",
-      "other": "Other"
+      "other": "Other",
+      "fall": "Fall",
+      "medication_error": "Medication Error",
+      "equipment_failure": "Equipment Failure",
+      "infection": "Infection"
     },
     "details": {
       "title": "Details",
