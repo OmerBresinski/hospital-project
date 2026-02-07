@@ -1,0 +1,234 @@
+{
+  "common": {
+    "appName": "דוחות אירועים",
+    "loading": "טוען...",
+    "error": "אירעה שגיאה",
+    "save": "שמור",
+    "cancel": "ביטול",
+    "submit": "שלח",
+    "delete": "מחק",
+    "edit": "ערוך",
+    "back": "חזור",
+    "search": "חיפוש",
+    "filter": "סינון",
+    "noResults": "לא נמצאו תוצאות",
+    "required": "חובה",
+    "optional": "אופציונלי",
+    "yes": "כן",
+    "no": "לא",
+    "select": "בחר...",
+    "actions": "פעולות",
+    "logout": "התנתק"
+  },
+  "auth": {
+    "login": "התחברות",
+    "loginTitle": "התחברות לחשבון",
+    "loginDescription": "הזן את פרטי ההתחברות שלך",
+    "username": "שם משתמש",
+    "password": "סיסמה",
+    "usernamePlaceholder": "הזן שם משתמש",
+    "passwordPlaceholder": "הזן סיסמה",
+    "loginButton": "התחבר",
+    "loginError": "שם משתמש או סיסמה שגויים",
+    "loggingIn": "מתחבר..."
+  },
+  "nav": {
+    "dashboard": "לוח בקרה",
+    "incidents": "אירועים",
+    "newIncident": "אירוע חדש",
+    "settings": "הגדרות"
+  },
+  "dashboard": {
+    "title": "אנליטיקס",
+    "incidentsByType": "אירועים לפי סוג",
+    "incidentsByStatus": "אירועים לפי סטטוס",
+    "incidentsByMonth": "אירועים לפי חודש",
+    "incidentsByReporter": "אירועים לפי מדווח",
+    "incidentsByDepartment": "אירועים לפי מחלקה",
+    "incidentsByDoctorCalled": "אירועים לפי קריאה לרופא",
+    "totalIncidents": "סה\"כ אירועים",
+    "openIncidents": "אירועים פתוחים",
+    "closedIncidents": "אירועים סגורים"
+  },
+  "incidents": {
+    "title": "דוחות אירועים",
+    "newIncident": "דוח אירוע חדש",
+    "incidentDetails": "פרטי אירוע",
+    "createIncident": "יצירת דוח אירוע",
+    "incidentReport": "דוח אירוע",
+    "noIncidents": "לא נמצאו אירועים",
+    "columns": {
+      "id": "מס' דוח",
+      "type": "סוג",
+      "dateTime": "תאריך ושעה",
+      "reporter": "מדווח",
+      "department": "מחלקה",
+      "status": "סטטוס"
+    }
+  },
+  "form": {
+    "status": {
+      "title": "סטטוס דוח",
+      "open": "פתוח",
+      "waitingForApproval": "ממתין לאישור",
+      "closed": "סגור"
+    },
+    "incidentType": {
+      "title": "סוג אירוע",
+      "placeholder": "בחר סוג אירוע",
+      "medical": "רפואי",
+      "safety": "בטיחות",
+      "security": "אבטחה",
+      "equipment": "ציוד",
+      "other": "אחר"
+    },
+    "details": {
+      "title": "פרטים",
+      "reporterName": "שם המדווח",
+      "reporterRole": "תפקיד המדווח",
+      "reporterDepartment": "מחלקת המדווח",
+      "reportDateTime": "תאריך ושעת הדיווח"
+    },
+    "classification": {
+      "title": "סיווג האירוע",
+      "abnormal": "אירוע חריג",
+      "almost": "כמעט אירוע"
+    },
+    "participant": {
+      "title": "סיווג משתתף",
+      "visitor": "מבקר",
+      "ambulatoryPatient": "מטופל אמבולטורי",
+      "hospitalizedPatient": "מטופל מאושפז",
+      "erPatient": "מטופל חדר מיון",
+      "employee": "עובד",
+      "noParticipant": "אין משתתף",
+      "other": "אחר"
+    },
+    "participantDetails": {
+      "title": "פרטי משתתף",
+      "firstName": "שם פרטי",
+      "lastName": "שם משפחה",
+      "idNumber": "מספר זהות (תעודת זהות)",
+      "birthYear": "שנת לידה",
+      "gender": "מגדר",
+      "male": "זכר",
+      "female": "נקבה",
+      "other": "אחר",
+      "hospitalizedStatus": "מאושפז",
+      "hospitalizedDateTime": "תאריך ושעת אשפוז"
+    },
+    "incidentDetails": {
+      "title": "פרטי האירוע",
+      "dateTime": "תאריך ושעת האירוע",
+      "department": "מחלקה",
+      "location": "מיקום",
+      "locationPlaceholder": "הזן מיקום האירוע",
+      "description": "תיאור",
+      "descriptionPlaceholder": "תאר את האירוע...",
+      "attendees": "נוכחים",
+      "addAttendee": "הוסף נוכח",
+      "attendeeName": "שם",
+      "attendeeRole": "תפקיד"
+    },
+    "departments": {
+      "emergency": "חדר מיון",
+      "general": "כללי",
+      "pediatrics": "ילדים",
+      "surgery": "כירורגיה",
+      "ambulatory": "אמבולטורי",
+      "other": "אחר"
+    },
+    "initialDiagnosis": {
+      "title": "אבחון ראשוני של המטופל",
+      "consciousness": "הכרה",
+      "conscious": "בהכרה",
+      "unconscious": "חסר הכרה",
+      "noConsciousness": "ללא הכרה",
+      "mobility": "ניידות",
+      "mobile": "נייד",
+      "partiallyMobile": "נייד חלקית",
+      "noMobility": "חסר ניידות",
+      "functionalStatus": "מצב תפקודי בזמן האירוע",
+      "independent": "עצמאי",
+      "partiallyDependent": "תלוי חלקית",
+      "dependent": "תלוי",
+      "bedridden": "מרותק למיטה",
+      "damage": "נזק",
+      "noDamage": "ללא נזק",
+      "minorDamage": "נזק קל",
+      "majorDamage": "נזק חמור",
+      "unknown": "לא ידוע",
+      "incidentResults": "פרטי תוצאות האירוע"
+    },
+    "handling": {
+      "title": "טיפול באירוע",
+      "reportedTo": "דווח ל",
+      "supervisor": "מנהל ישיר",
+      "generalSupervisor": "מנהל כללי",
+      "shiftManager": "אחראי משמרת",
+      "epidemiologistNurse": "אחות אפידמיולוגית",
+      "maintenance": "תחזוקה",
+      "it": "IT",
+      "guardian": "אפוטרופוס",
+      "security": "אבטחה",
+      "police": "משטרה",
+      "bioEngineer": "מהנדס ביו / טכנאי",
+      "hospitalManagement": "הנהלת בית החולים",
+      "nursingAdministration": "מנהל סיעוד",
+      "administrativeManager": "מנהל אדמיניסטרטיבי",
+      "departmentManager": "מנהל מחלקה",
+      "healthcareFacilitiesSupervisor": "מפקח מוסדות בריאות",
+      "family": "משפחה",
+      "doctorOnCall": "רופא תורן",
+      "activeDoctor": "רופא פעיל",
+      "clinicalPharmacist": "רוקח קליני",
+      "other": "אחר"
+    },
+    "doctorPrognosis": {
+      "title": "פרוגנוזת רופא",
+      "doctorWasCalled": "רופא נקרא",
+      "doctorName": "שם הרופא",
+      "examinationOccurred": "בוצעה בדיקה",
+      "doctorFindings": "ממצאי הרופא",
+      "prognosis": "פרוגנוזת הרופא",
+      "sentToHospital": "נשלח לבית חולים",
+      "participantName": "שם המשתתף",
+      "hospitalName": "שם בית החולים"
+    },
+    "conclusion": {
+      "title": "מסקנות וממצאים",
+      "contributingIncidents": "אירועים שתרמו לאירוע",
+      "incidentFindings": "ממצאי האירוע",
+      "preventiveMeasures": "אמצעי מניעה שנלמדו"
+    },
+    "attachments": {
+      "title": "קבצים מצורפים",
+      "dropzone": "גרור ושחרר קבצים כאן, או לחץ לבחירה",
+      "supportedFormats": "פורמטים נתמכים: PDF, DOC, DOCX, JPG, PNG, JPEG",
+      "maxSize": "גודל קובץ מקסימלי: 10MB",
+      "noFiles": "לא הועלו קבצים",
+      "remove": "הסר"
+    }
+  },
+  "settings": {
+    "title": "הגדרות",
+    "language": "שפה",
+    "languageDescription": "בחר את השפה המועדפת עליך",
+    "english": "אנגלית",
+    "hebrew": "עברית",
+    "theme": "ערכת נושא",
+    "themeDescription": "בחר את ערכת הנושא המועדפת עליך",
+    "light": "בהיר",
+    "dark": "כהה",
+    "system": "מערכת",
+    "saved": "ההגדרות נשמרו בהצלחה"
+  },
+  "validation": {
+    "required": "שדה זה הוא חובה",
+    "minLength": "חייב להיות לפחות {{min}} תווים",
+    "maxLength": "חייב להיות לכל היותר {{max}} תווים",
+    "invalidEmail": "כתובת דוא\"ל לא תקינה",
+    "invalidDate": "תאריך לא תקין",
+    "invalidNumber": "חייב להיות מספר תקין"
+  }
+}

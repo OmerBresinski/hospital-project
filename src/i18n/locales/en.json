@@ -1,0 +1,234 @@
+{
+  "common": {
+    "appName": "Incident Reports",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "save": "Save",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "search": "Search",
+    "filter": "Filter",
+    "noResults": "No results found",
+    "required": "Required",
+    "optional": "Optional",
+    "yes": "Yes",
+    "no": "No",
+    "select": "Select...",
+    "actions": "Actions",
+    "logout": "Logout"
+  },
+  "auth": {
+    "login": "Login",
+    "loginTitle": "Login to your account",
+    "loginDescription": "Enter your credentials below to login",
+    "username": "Username",
+    "password": "Password",
+    "usernamePlaceholder": "Enter your username",
+    "passwordPlaceholder": "Enter your password",
+    "loginButton": "Login",
+    "loginError": "Invalid username or password",
+    "loggingIn": "Logging in..."
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "incidents": "Incidents",
+    "newIncident": "New Incident",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Analytics",
+    "incidentsByType": "Incidents by Type",
+    "incidentsByStatus": "Incidents by Status",
+    "incidentsByMonth": "Incidents by Month",
+    "incidentsByReporter": "Incidents by Reporter",
+    "incidentsByDepartment": "Incidents by Department",
+    "incidentsByDoctorCalled": "Incidents by Doctor Called",
+    "totalIncidents": "Total Incidents",
+    "openIncidents": "Open Incidents",
+    "closedIncidents": "Closed Incidents"
+  },
+  "incidents": {
+    "title": "Incident Reports",
+    "newIncident": "New Incident Report",
+    "incidentDetails": "Incident Details",
+    "createIncident": "Create Incident Report",
+    "incidentReport": "Incident Report",
+    "noIncidents": "No incidents found",
+    "columns": {
+      "id": "Report #",
+      "type": "Type",
+      "dateTime": "Date & Time",
+      "reporter": "Reporter",
+      "department": "Department",
+      "status": "Status"
+    }
+  },
+  "form": {
+    "status": {
+      "title": "Report Status",
+      "open": "Open",
+      "waitingForApproval": "Waiting for Approval",
+      "closed": "Closed"
+    },
+    "incidentType": {
+      "title": "Incident Type",
+      "placeholder": "Select incident type",
+      "medical": "Medical",
+      "safety": "Safety",
+      "security": "Security",
+      "equipment": "Equipment",
+      "other": "Other"
+    },
+    "details": {
+      "title": "Details",
+      "reporterName": "Reporter Name",
+      "reporterRole": "Reporter Role",
+      "reporterDepartment": "Reporter Department",
+      "reportDateTime": "Report Date & Time"
+    },
+    "classification": {
+      "title": "Incident Classification",
+      "abnormal": "Abnormal Incident",
+      "almost": "Almost an Incident"
+    },
+    "participant": {
+      "title": "Participant Classification",
+      "visitor": "Visitor",
+      "ambulatoryPatient": "Ambulatory Patient",
+      "hospitalizedPatient": "Hospitalized Patient",
+      "erPatient": "ER Patient",
+      "employee": "Employee",
+      "noParticipant": "No Participant",
+      "other": "Other"
+    },
+    "participantDetails": {
+      "title": "Participant Details",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "idNumber": "ID Number (Teudat Zehut)",
+      "birthYear": "Birth Year",
+      "gender": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "hospitalizedStatus": "Hospitalized",
+      "hospitalizedDateTime": "Hospitalized Date & Time"
+    },
+    "incidentDetails": {
+      "title": "Incident Details",
+      "dateTime": "Incident Date & Time",
+      "department": "Department",
+      "location": "Location",
+      "locationPlaceholder": "Enter incident location",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe the incident...",
+      "attendees": "Attendees",
+      "addAttendee": "Add Attendee",
+      "attendeeName": "Name",
+      "attendeeRole": "Role"
+    },
+    "departments": {
+      "emergency": "Emergency",
+      "general": "General",
+      "pediatrics": "Pediatrics",
+      "surgery": "Surgery",
+      "ambulatory": "Ambulatory",
+      "other": "Other"
+    },
+    "initialDiagnosis": {
+      "title": "Initial Patient Diagnosis",
+      "consciousness": "Consciousness",
+      "conscious": "Conscious",
+      "unconscious": "Unconscious",
+      "noConsciousness": "No Consciousness",
+      "mobility": "Mobility",
+      "mobile": "Mobile",
+      "partiallyMobile": "Partially Mobile",
+      "noMobility": "No Mobility",
+      "functionalStatus": "Functional Status at Incident Time",
+      "independent": "Independent",
+      "partiallyDependent": "Partially Dependent",
+      "dependent": "Dependent",
+      "bedridden": "Bedridden",
+      "damage": "Damage",
+      "noDamage": "No Damage",
+      "minorDamage": "Minor Damage",
+      "majorDamage": "Major Damage",
+      "unknown": "Unknown",
+      "incidentResults": "Incident Results Details"
+    },
+    "handling": {
+      "title": "Incident Handling",
+      "reportedTo": "Reported To",
+      "supervisor": "Supervisor",
+      "generalSupervisor": "General Supervisor",
+      "shiftManager": "Shift Manager",
+      "epidemiologistNurse": "Epidemiologist Nurse",
+      "maintenance": "Maintenance",
+      "it": "IT",
+      "guardian": "Guardian",
+      "security": "Security",
+      "police": "Police",
+      "bioEngineer": "Bio Engineer / Technician",
+      "hospitalManagement": "Hospital Management",
+      "nursingAdministration": "Nursing Administration",
+      "administrativeManager": "Administrative Manager",
+      "departmentManager": "Department Manager",
+      "healthcareFacilitiesSupervisor": "Healthcare Facilities Supervisor",
+      "family": "Family",
+      "doctorOnCall": "Doctor on Call",
+      "activeDoctor": "Active Doctor",
+      "clinicalPharmacist": "Clinical Pharmacist",
+      "other": "Other"
+    },
+    "doctorPrognosis": {
+      "title": "Doctor Prognosis",
+      "doctorWasCalled": "Doctor was called",
+      "doctorName": "Doctor's Name",
+      "examinationOccurred": "Examination occurred",
+      "doctorFindings": "Doctor's Findings",
+      "prognosis": "Doctor Prognosis",
+      "sentToHospital": "Sent to Hospital",
+      "participantName": "Participant Name",
+      "hospitalName": "Hospital Name"
+    },
+    "conclusion": {
+      "title": "Incident Conclusion and Findings",
+      "contributingIncidents": "Incidents that contributed to the incident",
+      "incidentFindings": "Incident Findings",
+      "preventiveMeasures": "Preventive Measures Learned"
+    },
+    "attachments": {
+      "title": "Attachments",
+      "dropzone": "Drag & drop files here, or click to select",
+      "supportedFormats": "Supported formats: PDF, DOC, DOCX, JPG, PNG, JPEG",
+      "maxSize": "Maximum file size: 10MB",
+      "noFiles": "No files uploaded",
+      "remove": "Remove"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "languageDescription": "Select your preferred language",
+    "english": "English",
+    "hebrew": "Hebrew",
+    "theme": "Theme",
+    "themeDescription": "Select your preferred theme",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "saved": "Settings saved successfully"
+  },
+  "validation": {
+    "required": "This field is required",
+    "minLength": "Must be at least {{min}} characters",
+    "maxLength": "Must be at most {{max}} characters",
+    "invalidEmail": "Invalid email address",
+    "invalidDate": "Invalid date",
+    "invalidNumber": "Must be a valid number"
+  }
+}
