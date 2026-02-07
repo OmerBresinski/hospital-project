@@ -241,17 +241,17 @@ export function DashboardPage() {
               </CardHeader>
               <CardContent>
                 {chartData.byDepartmentData.length > 0 ? (
-                  <ChartContainer config={departmentChartConfig} className="h-[200px]">
-                    <BarChart data={chartData.byDepartmentData}>
+                  <ChartContainer config={departmentChartConfig} className="h-[250px]">
+                    <BarChart data={chartData.byDepartmentData} margin={{ bottom: 60 }}>
                       <XAxis
                         dataKey="label"
                         tickLine={false}
                         axisLine={false}
-                        tick={{ fontSize: 10 }}
+                        tick={{ fontSize: 11 }}
                         interval={0}
                         angle={-45}
                         textAnchor="end"
-                        height={60}
+                        dy={10}
                       />
                       <YAxis hide />
                       <ChartTooltip content={<ChartTooltipContent hideLabel />} />
@@ -291,8 +291,9 @@ export function DashboardPage() {
                         tickLine={false}
                         axisLine={false}
                         tickFormatter={(value) => value.split('-')[1]}
+                        reversed={isRTL}
                       />
-                      <YAxis tickLine={false} axisLine={false} />
+                      <YAxis tickLine={false} axisLine={false} orientation={isRTL ? 'right' : 'left'} />
                       <ChartTooltip content={<ChartTooltipContent />} />
                       <Line
                         type="monotone"
