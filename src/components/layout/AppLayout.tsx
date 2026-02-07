@@ -67,13 +67,12 @@ export function AppLayout() {
         dir={direction}
       >
         <SidebarHeader className="border-b">
-          <Link to="/" className="flex items-center gap-2 px-2 py-1">
-            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold text-sm">
-              IR
-            </div>
-            <span className="font-semibold truncate group-data-[collapsible=icon]:hidden">
-              {t('common.appName')}
-            </span>
+          <Link to="/" className="flex items-center justify-center px-2 py-1">
+            <img 
+              src="/merhavim-logo.png" 
+              alt="Merhavim" 
+              className="h-8 w-8 shrink-0 object-contain"
+            />
           </Link>
         </SidebarHeader>
 

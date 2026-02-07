@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Bar, BarChart, Line, LineChart, Pie, PieChart, XAxis, YAxis, Cell, CartesianGrid } from 'recharts';
 import { useIncidentStats } from '@/hooks/queries';
+import { useLocale } from '@/contexts';
 import { StatCard } from '@/components/dashboard';
 import { Spinner } from '@/components/ui/spinner';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -26,6 +27,8 @@ const CHART_COLORS = [
 
 export function DashboardPage() {
   const { t } = useTranslation();
+  const { direction } = useLocale();
+  const isRTL = direction === 'rtl';
   const { data: stats, isLoading, isError, error } = useIncidentStats();
 
   // Transform stats data for charts - memoized to prevent rerenders
@@ -165,23 +168,26 @@ export function DashboardPage() {
       {chartData && (
         <>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {/* Incidents by Type - Bar Chart */}
+            {/* Incidents by Type - Bar Chart (Vertical) */}
             <Card>
               <CardHeader>
                 <CardTitle className="text-base">{t('dashboard.incidentsByType')}</CardTitle>
               </CardHeader>
               <CardContent>
                 {chartData.byTypeData.length > 0 ? (
-                  <ChartContainer config={typeChartConfig} className="h-[200px]">
-                    <BarChart data={chartData.byTypeData} layout="vertical">
-                      <XAxis type="number" hide />
-                      <YAxis
+                  <ChartContainer config={typeChartConfig} className="h-[250px]">
+                    <BarChart data={chartData.byTypeData} margin={{ bottom: 60 }}>
+                      <XAxis
                         dataKey="label"
-                        type="category"
-                        width={80}
                         tickLine={false}
                         axisLine={false}
+                        tick={{ fontSize: 11 }}
+                        interval={0}
+                        angle={-45}
+                        textAnchor="end"
+                        dy={10}
                       />
+                      <YAxis hide />
                       <ChartTooltip content={<ChartTooltipContent hideLabel />} />
                       <Bar dataKey="count" radius={4}>
                         {chartData.byTypeData.map((entry, index) => (
@@ -228,7 +234,7 @@ export function DashboardPage() {
               </CardContent>
             </Card>
 
-            {/* Incidents by Department - Bar Chart */}
+            {/* Incidents by Department - Bar Chart (Vertical) */}
             <Card>
               <CardHeader>
                 <CardTitle className="text-base">{t('dashboard.incidentsByDepartment')}</CardTitle>
@@ -236,15 +242,18 @@ export function DashboardPage() {
               <CardContent>
                 {chartData.byDepartmentData.length > 0 ? (
                   <ChartContainer config={departmentChartConfig} className="h-[200px]">
-                    <BarChart data={chartData.byDepartmentData} layout="vertical">
-                      <XAxis type="number" hide />
-                      <YAxis
+                    <BarChart data={chartData.byDepartmentData}>
+                      <XAxis
                         dataKey="label"
-                        type="category"
-                        width={80}
                         tickLine={false}
                         axisLine={false}
+                        tick={{ fontSize: 10 }}
+                        interval={0}
+                        angle={-45}
+                        textAnchor="end"
+                        height={60}
                       />
+                      <YAxis hide />
                       <ChartTooltip content={<ChartTooltipContent hideLabel />} />
                       <Bar dataKey="count" radius={4}>
                         {chartData.byDepartmentData.map((entry, index) => (
@@ -300,7 +309,7 @@ export function DashboardPage() {
               </CardContent>
             </Card>
 
-            {/* Incidents by Reporter - Bar Chart */}
+            {/* Incidents by Reporter - Bar Chart (Vertical) */}
             <Card>
               <CardHeader>
                 <CardTitle className="text-base">{t('dashboard.incidentsByReporter')}</CardTitle>
@@ -308,16 +317,19 @@ export function DashboardPage() {
               </CardHeader>
               <CardContent>
                 {chartData.byReporterData.length > 0 ? (
-                  <ChartContainer config={reporterChartConfig} className="h-[200px] w-full aspect-auto">
-                    <BarChart data={chartData.byReporterData} layout="vertical">
-                      <XAxis type="number" hide />
-                      <YAxis
+                  <ChartContainer config={reporterChartConfig} className="h-[250px] w-full aspect-auto">
+                    <BarChart data={chartData.byReporterData}>
+                      <XAxis
                         dataKey="name"
-                        type="category"
-                        width={120}
                         tickLine={false}
                         axisLine={false}
+                        tick={{ fontSize: 10 }}
+                        interval={0}
+                        angle={-45}
+                        textAnchor="end"
+                        height={80}
                       />
+                      <YAxis hide />
                       <ChartTooltip content={<ChartTooltipContent hideLabel />} />
                       <Bar dataKey="count" radius={4}>
                         {chartData.byReporterData.map((entry, index) => (
