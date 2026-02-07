@@ -9,14 +9,15 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Field, FieldLabel } from '@/components/ui/field';
 import { Spinner } from '@/components/ui/spinner';
-import type { Locale } from '@/types';
+import type { Locale, Settings } from '@/types';
+
+type Theme = Settings['theme'];
 
 export function SettingsPage() {
   const { t } = useTranslation();
@@ -26,20 +27,32 @@ export function SettingsPage() {
 
   // Local state for form - only updates on save
   const [selectedLocale, setSelectedLocale] = useState<Locale | null>(null);
+  const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
 
-  // Use selectedLocale if set, otherwise fall back to saved settings or context
+  // Use selected values if set, otherwise fall back to saved settings or defaults
   const currentLocale = selectedLocale ?? settings?.locale ?? locale;
+  const currentTheme = selectedTheme ?? settings?.theme ?? 'system';
 
   // Check if there are unsaved changes
-  const hasChanges = selectedLocale !== null && selectedLocale !== (settings?.locale ?? locale);
+  const hasLocaleChange = selectedLocale !== null && selectedLocale !== (settings?.locale ?? locale);
+  const hasThemeChange = selectedTheme !== null && selectedTheme !== (settings?.theme ?? 'system');
+  const hasChanges = hasLocaleChange || hasThemeChange;
 
   const handleSave = async () => {
-    if (!selectedLocale) return;
+    if (!hasChanges) return;
+
+    const updates: Partial<Settings> = {};
+    if (selectedLocale) updates.locale = selectedLocale;
+    if (selectedTheme) updates.theme = selectedTheme;
 
     try {
-      await updateSettings.mutateAsync({ locale: selectedLocale });
-      setLocale(selectedLocale);
-      setSelectedLocale(null); // Reset local state after save
+      await updateSettings.mutateAsync(updates);
+      if (selectedLocale) {
+        setLocale(selectedLocale);
+      }
+      // Reset local state after save
+      setSelectedLocale(null);
+      setSelectedTheme(null);
       toast.success(t('settings.saved'));
     } catch (error) {
       toast.error(t('common.error'));
@@ -58,6 +71,7 @@ export function SettingsPage() {
     <div className="space-y-6">
       <h1 className="text-2xl font-bold">{t('settings.title')}</h1>
 
+      {/* Language Card */}
       <Card>
         <CardHeader>
           <CardTitle>{t('settings.language')}</CardTitle>
@@ -83,22 +97,58 @@ export function SettingsPage() {
             </Field>
           </RadioGroup>
         </CardContent>
-        <CardFooter>
-          <Button
-            onClick={handleSave}
-            disabled={!hasChanges || updateSettings.isPending}
-          >
-            {updateSettings.isPending ? (
-              <>
-                <Spinner className="mr-2 size-4" />
-                {t('common.loading')}
-              </>
-            ) : (
-              t('common.save')
-            )}
-          </Button>
-        </CardFooter>
       </Card>
+
+      {/* Theme Card */}
+      <Card>
+        <CardHeader>
+          <CardTitle>{t('settings.theme')}</CardTitle>
+          <CardDescription>{t('settings.themeDescription')}</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <RadioGroup
+            value={currentTheme}
+            onValueChange={(value) => setSelectedTheme(value as Theme)}
+            className="space-y-3"
+          >
+            <Field orientation="horizontal">
+              <RadioGroupItem value="light" id="theme-light" />
+              <FieldLabel htmlFor="theme-light">
+                {t('settings.light')}
+              </FieldLabel>
+            </Field>
+            <Field orientation="horizontal">
+              <RadioGroupItem value="dark" id="theme-dark" />
+              <FieldLabel htmlFor="theme-dark">
+                {t('settings.dark')}
+              </FieldLabel>
+            </Field>
+            <Field orientation="horizontal">
+              <RadioGroupItem value="system" id="theme-system" />
+              <FieldLabel htmlFor="theme-system">
+                {t('settings.system')}
+              </FieldLabel>
+            </Field>
+          </RadioGroup>
+        </CardContent>
+      </Card>
+
+      {/* Save Button */}
+      <div className="flex justify-end">
+        <Button
+          onClick={handleSave}
+          disabled={!hasChanges || updateSettings.isPending}
+        >
+          {updateSettings.isPending ? (
+            <>
+              <Spinner className="mr-2 size-4" />
+              {t('common.loading')}
+            </>
+          ) : (
+            t('common.save')
+          )}
+        </Button>
+      </div>
     </div>
   );
 }

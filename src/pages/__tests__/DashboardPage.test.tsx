@@ -127,6 +127,7 @@ describe('DashboardPage', () => {
     mockUseIncidentStats.mockReturnValue({
       data: undefined,
       isPending: true,
+      isLoading: true,
       isError: false,
       error: null,
     });
@@ -140,6 +141,7 @@ describe('DashboardPage', () => {
     mockUseIncidentStats.mockReturnValue({
       data: undefined,
       isPending: false,
+      isLoading: false,
       isError: true,
       error: new Error('Failed to fetch'),
     });
@@ -153,6 +155,7 @@ describe('DashboardPage', () => {
     mockUseIncidentStats.mockReturnValue({
       data: mockStats,
       isPending: false,
+      isLoading: false,
       isError: false,
       error: null,
     });
@@ -166,6 +169,7 @@ describe('DashboardPage', () => {
     mockUseIncidentStats.mockReturnValue({
       data: mockStats,
       isPending: false,
+      isLoading: false,
       isError: false,
       error: null,
     });
@@ -185,6 +189,7 @@ describe('DashboardPage', () => {
     mockUseIncidentStats.mockReturnValue({
       data: mockStats,
       isPending: false,
+      isLoading: false,
       isError: false,
       error: null,
     });
@@ -211,6 +216,7 @@ describe('DashboardPage', () => {
         byDoctorCalled: {},
       },
       isPending: false,
+      isLoading: false,
       isError: false,
       error: null,
     });

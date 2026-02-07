@@ -19,7 +19,7 @@ import type { IncidentListItem } from '@/types';
 export function IncidentListPage() {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { data: incidents, isPending, isError, error } = useIncidents();
+  const { data: incidents, isLoading, isError, error } = useIncidents();
 
   // Department translation helper
   const getDepartmentLabel = (department: string) => {
@@ -37,7 +37,7 @@ export function IncidentListPage() {
     navigate(`/incidents/${incident.id}`);
   };
 
-  if (isPending) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center p-8">
         <Spinner className="size-8" />

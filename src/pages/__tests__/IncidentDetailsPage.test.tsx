@@ -174,6 +174,7 @@ describe('IncidentDetailsPage', () => {
     mockUseIncident.mockReturnValue({
       data: undefined,
       isPending: true,
+      isLoading: true,
       isError: false,
       error: null,
     });
@@ -187,6 +188,7 @@ describe('IncidentDetailsPage', () => {
     mockUseIncident.mockReturnValue({
       data: undefined,
       isPending: false,
+      isLoading: false,
       isError: true,
       error: new Error('Failed to fetch'),
     });
@@ -200,6 +202,7 @@ describe('IncidentDetailsPage', () => {
     mockUseIncident.mockReturnValue({
       data: mockIncident,
       isPending: false,
+      isLoading: false,
       isError: false,
       error: null,
     });
@@ -232,6 +235,7 @@ describe('IncidentDetailsPage', () => {
     mockUseIncident.mockReturnValue({
       data: mockIncident,
       isPending: false,
+      isLoading: false,
       isError: false,
       error: null,
     });
@@ -249,6 +253,7 @@ describe('IncidentDetailsPage', () => {
     mockUseIncident.mockReturnValue({
       data: mockIncident,
       isPending: false,
+      isLoading: false,
       isError: false,
       error: null,
     });

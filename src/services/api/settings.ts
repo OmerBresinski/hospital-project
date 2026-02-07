@@ -10,6 +10,57 @@ const defaultSettings: Settings = {
 // Simulate network delay
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+/**
+ * Check if running in browser environment
+ */
+const isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+
+/**
+ * Apply theme to document
+ */
+const applyTheme = (theme: Settings['theme']) => {
+  if (!isBrowser) return;
+  
+  const root = document.documentElement;
+  
+  if (theme === 'system') {
+    const systemDark = window.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+    root.classList.toggle('dark', systemDark);
+  } else {
+    root.classList.toggle('dark', theme === 'dark');
+  }
+};
+
+/**
+ * Get theme synchronously (for initial render)
+ */
+const getThemeSync = (): Settings['theme'] => {
+  if (!isBrowser) return 'system';
+  
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      return parsed.theme || 'system';
+    }
+  } catch {
+    // Ignore
+  }
+  return 'system';
+};
+
+// Apply theme on initial load (only in browser)
+if (isBrowser) {
+  applyTheme(getThemeSync());
+
+  // Listen for system theme changes when in 'system' mode
+  window.matchMedia?.('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (getThemeSync() === 'system') {
+      applyTheme('system');
+    }
+  });
+}
+
 export const settingsApi = {
   /**
    * Get current settings
@@ -47,6 +98,11 @@ export const settingsApi = {
       const direction = settings.locale === 'he' ? 'rtl' : 'ltr';
       document.documentElement.dir = direction;
       document.documentElement.lang = settings.locale;
+    }
+    
+    // Apply theme if changed
+    if (settings.theme) {
+      applyTheme(settings.theme);
     }
     
     return updated;

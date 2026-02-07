@@ -26,7 +26,7 @@ const CHART_COLORS = [
 
 export function DashboardPage() {
   const { t } = useTranslation();
-  const { data: stats, isPending, isError, error } = useIncidentStats();
+  const { data: stats, isLoading, isError, error } = useIncidentStats();
 
   // Transform stats data for charts - memoized to prevent rerenders
   const chartData = useMemo(() => {
@@ -117,7 +117,7 @@ export function DashboardPage() {
     },
   };
 
-  if (isPending) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center p-8">
         <Spinner className="size-8" />

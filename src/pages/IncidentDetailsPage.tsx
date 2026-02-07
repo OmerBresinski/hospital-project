@@ -19,9 +19,9 @@ export function IncidentDetailsPage() {
   const { t } = useTranslation();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { data: incident, isPending, isError, error } = useIncident(id || '');
+  const { data: incident, isLoading, isError, error } = useIncident(id || '');
 
-  if (isPending) {
+  if (isLoading) {
     return (
       <div className="flex items-center justify-center p-8">
         <Spinner className="size-8" />
